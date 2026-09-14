@@ -39,46 +39,31 @@
     <div class="faq-item">
       <h3>Why didn't my alarm go off?</h3>
       <p>
-        BuzzBee uses Apple's AlarmKit, so your hard deadline rings reliably — full volume,
-        through Silent mode and Focus — even if the app has been fully closed (swiped away in
-        your app switcher). The one thing that does depend on the app being open is Smart
-        Wake's early detection: sensing that you're already stirring before your hard deadline
-        needs BuzzBee running in the background to work. If it's fully closed when your wake
-        window opens, you'll simply get the hard-deadline ring instead of an earlier, gentler
-        one — you're never left without an alarm either way. If your alarm didn't ring at all,
-        check: is Do Not Disturb or a Focus mode blocking alerts, and is your ringer/alarm
-        volume up? We recommend testing BuzzBee a few times with your own device and settings
-        before relying on it for anything time-critical.
+        BuzzBee uses Apple's AlarmKit, so your alarm rings reliably — full volume, through
+        Silent mode and Focus — even if the app has been fully closed (swiped away in your app
+        switcher). This applies to the whole alarm, including a Wake Window's gentle start, not
+        just the hard deadline. If your alarm didn't ring at all, check: is Do Not Disturb or a
+        Focus mode blocking alerts, and is your ringer/alarm volume up? We recommend testing
+        BuzzBee a few times with your own device and settings before relying on it for anything
+        time-critical.
       </p>
     </div>
 
     <div class="faq-item">
-      <h3>Why did I get a notification saying "BuzzBee is closed"?</h3>
-      <p>
-        That's a heads-up, not an alarm. It means BuzzBee has been fully closed, so Smart
-        Wake's light-sleep detection can't run until you reopen it — your hard-deadline alarm
-        will still ring on schedule regardless. Tap the notification to reopen BuzzBee and
-        restore the "earlier, gentler" part of Smart Wake.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>What is Smart Wake, and how does it decide when to ring?</h3>
+      <h3>What is Wake Window, and how does it decide when to ring?</h3>
       <p>
         Instead of one fixed time, you set a wake <em>window</em> (e.g. 6:30–7:00 AM) and a hard
-        deadline. While that window is open, BuzzBee watches your phone's motion sensor for
-        signs of lighter sleep — small, frequent movements rather than long stillness — and
-        rings the moment it notices them. If nothing is detected, it rings at your hard
-        deadline regardless, so it never fails to wake you — it only ever wakes you earlier and
-        more gently when it can.
+        deadline. BuzzBee starts ringing gently the moment the window opens and gradually builds
+        to full volume by the deadline — so instead of one jarring instant, you ease out of sleep
+        rather than getting yanked out of it, and it never rings later than the deadline you set.
       </p>
     </div>
 
     <div class="faq-item">
       <h3>Does BuzzBee record my voice or conversations?</h3>
       <p>
-        Not unless you ask it to. The microphone is used for Ambient Awareness, the Clap
-        mission, and the Buzzzzz mission, but in every one of those cases BuzzBee only reads a
+        Not unless you ask it to. The microphone is used for the Clap
+        mission and the Buzzzzz mission, but in every one of those cases BuzzBee only reads a
         live volume/loudness level — it never listens to, interprets, stores, or transmits
         actual audio content. The one exception is if you use <strong>Record Your Own Alarm
         Sound</strong>, which does record real audio — but only when you deliberately tap
@@ -96,11 +81,10 @@
         Haptics</strong> (your default), tap <strong>Record a New Sound</strong>, record up to
         15 seconds, preview it, and save it with a name. It shows up under "Your Sounds" right
         alongside the built-in tones, and you can delete it anytime with the trash icon next to
-        it. One thing to know: the fully-closed hard-deadline alarm (the part backed by Apple's
-        AlarmKit) can only use sounds bundled inside the app, so if BuzzBee is fully force-quit
-        when your alarm hits, that specific ring falls back to the default alert tone instead of
-        your recording — your recording plays normally any other time, including whenever the
-        app is open or backgrounded.
+        it. One thing to know: the alert that fires through Apple's AlarmKit when BuzzBee is
+        fully force-quit can only use sounds bundled inside the app, so that specific ring falls
+        back to the default alert tone instead of your recording — your recording plays normally
+        any other time, including whenever the app is open or backgrounded.
       </p>
     </div>
 
@@ -126,7 +110,7 @@
     </div>
 
     <div class="faq-item">
-      <h3>How do I turn off Bedtime Reminder, Calendar Auto-Shift, or Ambient Awareness?</h3>
+      <h3>How do I turn off Bedtime Reminder or Calendar Auto-Shift?</h3>
       <p>
         These are global toggles in <strong>Settings → Smart Features</strong> — turning one off
         stops that feature (and its notifications, where applicable) for every alarm.

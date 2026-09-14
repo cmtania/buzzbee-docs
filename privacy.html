@@ -61,8 +61,8 @@
     <h2>1.1 Alarm and app data (stored locally only)</h2>
     <ul>
       <li>Alarms you create (times, repeat days, chosen dismiss mission, chosen sound)</li>
-      <li>Wake history (when an alarm rang, when you dismissed it, whether it triggered early via Smart Wake or at the hard deadline)</li>
-      <li>App settings (Bedtime Reminder, Calendar Auto-Shift, Ambient Awareness, sound and haptic preferences)</li>
+      <li>Wake history (when an alarm rang, when you dismissed it, whether it triggered at your Wake Window's start or at the hard deadline)</li>
+      <li>App settings (Bedtime Reminder, Calendar Auto-Shift, sound and haptic preferences)</li>
       <li>Any custom alarm sounds you record (see 1.3 below) — the audio file and the name you give it</li>
     </ul>
     <p>
@@ -71,17 +71,15 @@
     </p>
 
     <h2>1.2 Motion sensor (accelerometer)</h2>
-    <p>BuzzBee uses your device's built-in motion sensor for two features:</p>
-    <ul>
-      <li><strong>Smart Wake</strong>: while a Smart Wake alarm's wake window is open, BuzzBee samples motion data to estimate whether you're in a lighter stage of sleep, so it can ring earlier and more gently instead of always waking you at the hard deadline.</li>
-      <li><strong>Shake mission</strong>: if you choose "Shake" as your dismiss method, motion data is used to count shakes.</li>
-    </ul>
+    <p>
+      BuzzBee uses your device's built-in motion sensor for the <strong>Shake mission</strong>:
+      if you choose "Shake" as your dismiss method, motion data is used to count shakes.
+    </p>
     <p>Motion data is processed in memory, in real time, on your device. It is never stored, logged, or transmitted anywhere.</p>
 
     <h2>1.3 Microphone</h2>
     <p>BuzzBee uses your device's microphone for:</p>
     <ul>
-      <li><strong>Ambient Awareness</strong> (optional, off by default): before a Smart Wake alarm rings early, BuzzBee briefly checks the room's ambient noise level to detect whether you might already be up, so it can offer a lighter check-in instead of a full alarm.</li>
       <li><strong>Clap mission</strong>: counts clap sounds to dismiss the alarm.</li>
       <li><strong>Buzzzzz mission</strong>: detects a sustained loud sound to dismiss the alarm.</li>
       <li><strong>Ringer Check</strong> (during setup): plays your chosen alarm sound so you can confirm your volume is loud enough.</li>
@@ -89,7 +87,7 @@
     </ul>
     <div class="callout">
       <p>
-        <strong>For Ambient Awareness, Clap, Buzzzzz, and Ringer Check, BuzzBee only ever reads a
+        <strong>For Clap, Buzzzzz, and Ringer Check, BuzzBee only ever reads a
         live volume/loudness level from the microphone</strong> — it does not listen to,
         interpret, store, or transmit the content of any sound or speech.
       </p>
@@ -105,7 +103,7 @@
 
     <h2>1.4 Calendar (read-only, optional)</h2>
     <p>
-      If you enable <strong>Calendar Auto-Shift</strong> (off by default), BuzzBee reads the next
+      With <strong>Calendar Auto-Shift</strong> (on by default), BuzzBee reads the next
       day's earliest calendar event so it can suggest shifting your wake window if there's a
       scheduling conflict (for example, "Tomorrow's first event is at 8:00 — move your wake
       window to 5:45-6:15?"). BuzzBee only reads calendar event times for this purpose — it does
@@ -120,10 +118,9 @@
       don't have any). Local notifications are used for:
     </p>
     <ul>
-      <li>A backup for your hard-deadline alarm (BuzzBee's primary alarm mechanism is Apple's AlarmKit, which rings reliably even if the app is closed; this local notification is a defense-in-depth fallback)</li>
+      <li>A backup for your alarm (BuzzBee's primary alarm mechanism is Apple's AlarmKit, which rings reliably even if the app is closed; this local notification is a defense-in-depth fallback)</li>
       <li>Bedtime Reminder notifications (before and at your set bedtime)</li>
       <li>Calendar conflict nudges</li>
-      <li>A "BuzzBee is closed" reminder if the app has been closed and Smart Wake's light-sleep detection needs it reopened</li>
     </ul>
 
     <h2>2. Information We Do Not Collect</h2>

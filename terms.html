@@ -42,10 +42,10 @@
 
     <h2>1. The App</h2>
     <p>
-      BuzzBee is a smart alarm clock app that wakes you within a chosen time window using
-      motion-based sleep detection ("Smart Wake"), or at a fixed time, and requires you to
-      complete a short dismiss "mission" (math, tap, shake, clap, or a sustained sound) to turn
-      the alarm off.
+      BuzzBee is a smart alarm clock app that wakes you within a chosen time window, starting
+      gently and building to full volume by your deadline ("Wake Window"), or at a fixed time,
+      and requires you to complete a short dismiss "mission" (math, tap, shake, clap, or a
+      sustained sound) to turn the alarm off.
     </p>
 
     <h2>2. Important: Alarm Reliability Disclaimer</h2>
@@ -58,9 +58,8 @@
       important:
     </p>
     <ul>
-      <li><strong>Background and killed-app behavior.</strong> BuzzBee uses Apple's AlarmKit framework so your hard-deadline alarm can ring reliably — full volume, through Silent mode and Focus — even if the app has been fully closed (force-quit) by you or the system. This does not extend to Smart Wake's early light-sleep detection, which requires BuzzBee to be running (foreground or backgrounded) to sense movement; if the app is fully closed when your wake window opens, you will still receive the hard-deadline alarm, just without the earlier, gentler ring. A backup system notification also exists as a defense-in-depth fallback, and may use a different (quieter, non-looping) sound than your chosen alarm tone if it is ever the one that fires.</li>
+      <li><strong>Background and killed-app behavior.</strong> BuzzBee uses Apple's AlarmKit framework so your alarm can ring reliably — full volume, through Silent mode and Focus — even if the app has been fully closed (force-quit) by you or the system. This applies to the whole alarm, including a Wake Window's gentle start, not just the hard deadline. A backup system notification also exists as a defense-in-depth fallback, and may use a different (quieter, non-looping) sound than your chosen alarm tone if it is ever the one that fires.</li>
       <li><strong>Do Not Disturb, Silent Mode, and system settings.</strong> Depending on your device's settings, certain modes may reduce or silence alerts. We recommend testing BuzzBee's behavior with your specific device settings before depending on it for anything time-critical.</li>
-      <li><strong>Smart Wake is a heuristic, not a medical device.</strong> Smart Wake estimates sleep depth from motion patterns. It is a best-effort convenience feature, not a clinically validated sleep-tracking or medical tool, and it may not always detect movement accurately.</li>
       <li><strong>No guarantee of waking you up.</strong> While BuzzBee is designed with a hard-deadline fallback specifically so it never rings <em>later</em> than the time you set, we cannot guarantee, and do not warrant, that the App will wake you under all circumstances (for example, extremely low device volume, a malfunctioning device, an operating system bug, or a fully depleted battery).</li>
     </ul>
     <div class="callout">
