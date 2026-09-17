@@ -102,7 +102,8 @@ main[id] {
     transition-delay: 0s;
   }
   .hero-inner > *,
-  .phone-mock {
+  .phone-mock,
+  .mock-chip.active {
     animation: none !important;
   }
 }
@@ -176,27 +177,35 @@ main[id] {
   text-decoration: none;
   color: var(--ink-soft);
   position: relative;
-  transition: color var(--dur-fast) var(--ease-out);
 }
 
 .nav-links a:not(.btn)::after {
   content: '';
   position: absolute;
   left: 0;
-  right: 100%;
   bottom: -4px;
+  width: 100%;
   height: 2px;
   background: var(--accent-deep);
   border-radius: 2px;
-  transition: right var(--dur-fast) var(--ease-out);
+  transform: scaleX(0);
+  transform-origin: left;
 }
 
-.nav-links a:not(.btn):hover {
-  color: var(--ink);
-}
-
-.nav-links a:not(.btn):hover::after {
-  right: 0;
+/* Touch fires false hovers on tap — real devices only get the sweep. */
+@media (hover: hover) and (pointer: fine) {
+  .nav-links a:not(.btn) {
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+  .nav-links a:not(.btn)::after {
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+  .nav-links a:not(.btn):hover {
+    color: var(--ink);
+  }
+  .nav-links a:not(.btn):hover::after {
+    transform: scaleX(1);
+  }
 }
 
 /* ---------- Buttons ---------- */
@@ -218,8 +227,21 @@ main[id] {
               background-color var(--dur-fast) var(--ease-out);
 }
 
-.btn:hover {
-  transform: translateY(-2px);
+/* :active (below) is the real touch feedback — :hover is mouse-only, so it never sticks after a tap. */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  .btn-primary:hover {
+    background: #f7b13f;
+    box-shadow: 0 14px 32px rgba(245, 166, 35, 0.5);
+  }
+  .btn-outline:hover {
+    border-color: var(--ink-faint);
+  }
+  .btn-white:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
 }
 
 /* Feedback lands on press, not on release — the moment lag appears, directness dies. */
@@ -235,29 +257,16 @@ main[id] {
   box-shadow: 0 10px 24px rgba(245, 166, 35, 0.4);
 }
 
-.btn-primary:hover {
-  background: #f7b13f;
-  box-shadow: 0 14px 32px rgba(245, 166, 35, 0.5);
-}
-
 .btn-outline {
   background: transparent;
   color: var(--ink);
   border: 2px solid var(--track-off);
 }
 
-.btn-outline:hover {
-  border-color: var(--ink-faint);
-}
-
 .btn-white {
   background: var(--white);
   color: var(--ink);
   box-shadow: var(--shadow-card);
-}
-
-.btn-white:hover {
-  box-shadow: var(--shadow-card-hover);
 }
 
 .btn-sm {
@@ -398,7 +407,7 @@ main[id] {
   transition: transform var(--dur-base) var(--ease-out);
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .hero-art:hover .phone-mock {
     transform: translateY(-4px) rotate(-0.6deg);
   }
@@ -515,7 +524,7 @@ section {
               box-shadow var(--dur-fast) var(--ease-out);
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .mission-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-card-hover);
@@ -523,11 +532,6 @@ section {
   .mission-card:hover .mission-icon {
     transform: scale(1.08);
   }
-}
-
-.mission-card:active {
-  transform: scale(0.98);
-  transition-duration: var(--dur-instant);
 }
 
 .mission-icon {
@@ -576,7 +580,7 @@ section {
               box-shadow var(--dur-fast) var(--ease-out);
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .feature-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-card-hover);
@@ -584,11 +588,6 @@ section {
   .feature-card:hover .icon-badge {
     transform: scale(1.08);
   }
-}
-
-.feature-card:active {
-  transform: scale(0.99);
-  transition-duration: var(--dur-instant);
 }
 
 .feature-card .icon-badge {
@@ -831,7 +830,7 @@ footer {
   transition: box-shadow var(--dur-fast) var(--ease-out);
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .faq-item:hover {
     box-shadow: var(--shadow-card-hover);
   }
