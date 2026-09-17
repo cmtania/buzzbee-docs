@@ -36,7 +36,7 @@
   <main class="doc-body wrap">
     <h2>Frequently asked questions</h2>
 
-    <div class="faq-item">
+    <div class="faq-item reveal">
       <h3>Why didn't my alarm go off?</h3>
       <p>
         BuzzBee uses Apple's AlarmKit, so your alarm rings reliably — full volume, through
@@ -49,7 +49,7 @@
       </p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item reveal">
       <h3>What is Wake Window, and how does it decide when to ring?</h3>
       <p>
         Instead of one fixed time, you set a wake <em>window</em> (e.g. 6:30–7:00 AM) and a hard
@@ -59,7 +59,7 @@
       </p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item reveal">
       <h3>Does BuzzBee record my voice or conversations?</h3>
       <p>
         Not unless you ask it to. The microphone is used for the Clap
@@ -74,7 +74,7 @@
       </p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item reveal">
       <h3>Can I use my own recording as an alarm sound?</h3>
       <p>
         Yes. In <strong>Choose a Sound</strong> (per-alarm) or <strong>Settings → Sound &
@@ -88,7 +88,7 @@
       </p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item reveal">
       <h3>How do I change my alarm's sound or dismiss mission?</h3>
       <p>
         Open the alarm from the Home screen, then tap <strong>Choose a Mission</strong> or
@@ -98,7 +98,7 @@
       </p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item reveal">
       <h3>Can I snooze, or dismiss without finishing the mission?</h3>
       <p>
         No — this is intentional. Snoozing and shortcut-dismissing are disabled by design, since
@@ -109,7 +109,7 @@
       </p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item reveal">
       <h3>How do I turn off Bedtime Reminder or Calendar Auto-Shift?</h3>
       <p>
         These are global toggles in <strong>Settings → Smart Features</strong> — turning one off
@@ -117,14 +117,14 @@
       </p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item reveal">
       <h3>Is BuzzBee free?</h3>
       <p>
         Yes. BuzzBee currently works fully offline with no account, no sign-up, and no paywall.
       </p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item reveal">
       <h3>I found a bug, or have a feature request</h3>
       <p>
         We'd genuinely like to hear about it — the more detail the better (what you expected,
@@ -133,7 +133,7 @@
       </p>
     </div>
 
-    <div class="contact-card">
+    <div class="contact-card reveal">
       <h2>Still need help?</h2>
       <p>Send us an email and we'll get back to you.</p>
       <a class="btn btn-primary" href="mailto:tania.dev.ph@gmail.com">tania.dev.ph@gmail.com</a>
@@ -156,8 +156,6 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="assets/site.js"></script>
 </body>
 </html>

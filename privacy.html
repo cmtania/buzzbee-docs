@@ -62,6 +62,7 @@
     <ul>
       <li>Alarms you create (times, repeat days, chosen dismiss mission, chosen sound)</li>
       <li>Wake history (when an alarm rang, when you dismissed it, whether it triggered at your Wake Window's start or at the hard deadline)</li>
+      <li>Task after you're awake data: any follow-up tasks you attach to an alarm (their names and times) and your yes/no responses to "did you finish this?"</li>
       <li>App settings (Bedtime Reminder, Calendar Auto-Shift, sound and haptic preferences)</li>
       <li>Any custom alarm sounds you record (see 1.3 below) — the audio file and the name you give it</li>
     </ul>
@@ -121,6 +122,7 @@
       <li>A backup for your alarm (BuzzBee's primary alarm mechanism is Apple's AlarmKit, which rings reliably even if the app is closed; this local notification is a defense-in-depth fallback)</li>
       <li>Bedtime Reminder notifications (before and at your set bedtime)</li>
       <li>Calendar conflict nudges</li>
+      <li>Task after you're awake reminders — these are plain notifications, not a second alarm, and only reach you once you've finished that alarm's own mission</li>
     </ul>
 
     <h2>2. Information We Do Not Collect</h2>
@@ -154,6 +156,7 @@
     <p>Because all data stays on your device, you are always in control of it:</p>
     <ul>
       <li>You can delete an individual alarm or wake-history entry at any time within the app.</li>
+      <li><strong>Settings → Reset Data</strong> deletes everything BuzzBee has ever stored — every alarm, all wake and task history, custom sounds, and settings — in one step, without uninstalling the app.</li>
       <li>Uninstalling BuzzBee permanently deletes all locally stored data (alarms, history, settings).</li>
       <li>Revoking microphone, motion, or calendar permissions in your device's Settings app immediately stops BuzzBee from accessing them — the app will simply disable the affected feature (with an in-app message) rather than crashing.</li>
     </ul>
@@ -193,8 +196,6 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="assets/site.js"></script>
 </body>
 </html>
