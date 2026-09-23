@@ -1,0 +1,227 @@
+/* Landing page only (index.html). support/privacy/terms keep styles.css.
+   Minimal, centered, generous whitespace; colors mirror the app's theme. */
+
+:root {
+  --bg: #FFFDF8;
+  --card: #F7F0E3;
+  --ink: #2B2420;
+  --ink-soft: #6B5D4F;
+  --ink-faint: #786853;
+  --accent: #F5A623;
+  --accent-deep: #E8790A;
+  --display: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--display);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ---------- nav ---------- */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px clamp(20px, 5.5vw, 80px);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.nav.is-scrolled {
+  background: rgba(255, 253, 248, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 rgba(43, 36, 32, 0.06);
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand img { width: 30px; height: 30px; }
+.brand span { font-family: 'DynaPuff', var(--display); font-weight: 700; font-size: 22px; }
+
+/* ---------- pills ---------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 15px 26px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.pill svg { width: 18px; height: 18px; flex-shrink: 0; }
+.pill-sm { padding: 10px 16px; font-size: 14px; }
+.pill-dark { background: var(--ink); color: #fff; transition: background 0.15s; }
+a.pill-dark:hover { background: #45392F; }
+/* Nav button: the real app icon on the left, then the label. */
+.pill-app { gap: 10px; padding: 6px 16px 6px 6px; }
+.pill-app img { width: 28px; height: 28px; border-radius: 7px; }
+.pill-ghost { background: var(--card); color: var(--ink); transition: background 0.15s; }
+a.pill-ghost:hover { background: #EFE5D3; }
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(120px, 20svh, 170px) 24px 60px;
+  text-align: center;
+  overflow: hidden;
+}
+/* Honeycomb clusters pinned to the screen's left and right edges — BuzzBee's
+   own motif (a few cells filled with honey), and deliberately nothing like a
+   clock. Fixed, so they stay put while the page scrolls over them; z-index -1
+   keeps them behind all content (text, cards) but above the page background. */
+.comb {
+  position: fixed;
+  z-index: -1;
+  top: 50%;
+  width: min(30vw, 380px);
+  opacity: 0.75;
+  pointer-events: none;
+}
+.comb svg { width: 100%; height: auto; display: block; }
+.comb-left { left: -2vw; transform: translateY(-46%); }
+.comb-right { right: -2vw; transform: translateY(-54%) scaleX(-1); }
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+}
+.hero-bee { width: 232px; height: auto; animation: hover 4s ease-in-out infinite; }
+@keyframes hover { 50% { transform: translateY(-8px) rotate(-2deg); } }
+h1 {
+  font-weight: 800;
+  font-size: clamp(38px, 6.4vw, 68px);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.lede {
+  font-weight: 600;
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 560px;
+  text-wrap: balance;
+}
+.cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 6px; }
+
+/* ---------- sections ---------- */
+.section { padding: clamp(72px, 12vw, 130px) clamp(20px, 5.5vw, 80px); }
+.section-head { max-width: 720px; margin: 0 auto clamp(36px, 6vw, 56px); text-align: center; }
+h2 {
+  font-weight: 800;
+  font-size: clamp(32px, 4.8vw, 52px);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.section-head p {
+  margin-top: 16px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  text-wrap: balance;
+}
+
+.grid { display: grid; gap: 18px; max-width: 980px; margin: 0 auto; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.card {
+  background: var(--card);
+  border-radius: 28px;
+  padding: 30px 26px 32px;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 8px;
+  text-align: center;
+}
+.card h3 { font-weight: 800; font-size: 20px; letter-spacing: -0.01em; }
+.card p { font-weight: 600; font-size: 15.5px; line-height: 1.5; color: var(--ink-faint); }
+.card-lg { padding: 36px 28px 38px; gap: 10px; }
+.card-lg h3 { font-size: 21px; line-height: 1.2; text-wrap: balance; }
+
+.icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-deep);
+}
+.icon svg { width: 28px; height: 28px; }
+.icon-lg { width: 76px; height: 76px; }
+.icon-lg svg { width: 34px; height: 34px; }
+
+/* ---------- final CTA ---------- */
+.final {
+  margin: 0 clamp(20px, 5.5vw, 80px) clamp(60px, 9vw, 100px);
+  padding: clamp(56px, 8vw, 88px) 24px;
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.final-bee { width: 188px; height: auto; }
+.final p { font-weight: 600; font-size: 18px; color: var(--ink-soft); margin-bottom: 8px; }
+
+/* ---------- footer ---------- */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 28px clamp(20px, 5.5vw, 80px) 40px;
+  border-top: 1px solid rgba(43, 36, 32, 0.08);
+}
+.footer .brand img { width: 24px; height: 24px; }
+.footer .brand span { font-size: 18px; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-weight: 600; font-size: 15px; color: var(--ink-soft); }
+.footer-links a:hover { color: var(--ink); }
+.copy { font-weight: 600; font-size: 14px; color: var(--ink-faint); }
+
+/* ---------- scroll reveal (driven by assets/site.js) ---------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---------- responsive ---------- */
+/* Narrower screens: fade the combs back so they never compete with the text. */
+@media (max-width: 1100px) {
+  .comb { opacity: 0.55; }
+}
+@media (max-width: 860px) {
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .grid-3 { grid-template-columns: 1fr; max-width: 420px; }
+  .comb { width: 44vw; opacity: 0.4; }
+  .hero-bee { width: 108px; }
+  .footer { flex-direction: column; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-bee { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

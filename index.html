@@ -3,261 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BuzzBee — Smart Loud Alarm Clock</title>
-  <meta name="description" content="BuzzBee wakes you within a Wake Window — starting gently and building to full volume, never later than your hard deadline. Plus Bedtime Reminder and calendar-aware scheduling." />
-  <link rel="icon" href="assets/bee-logo.svg" type="image/svg+xml" />
+  <title>BuzzBee — The alarm that starts gentle and never lets you oversleep</title>
+  <meta name="description" content="BuzzBee rings softly when your wake window opens, builds to full volume by your deadline, and makes you finish a mission to turn it off. Rings through Silent mode, even if the app is closed." />
+  <link rel="icon" href="assets/icon.png" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="home.css" />
 </head>
 <body>
 
+  <!-- Pinned to the screen edges (position: fixed) — the page scrolls over them. -->
+    <div class="comb comb-left" aria-hidden="true"><svg viewBox="0 0 386 504"><polygon points="36.6,5.0 68.7,23.5 68.7,60.5 36.6,79.0 4.6,60.5 4.6,23.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="105.9,5.0 138.0,23.5 138.0,60.5 105.9,79.0 73.9,60.5 73.9,23.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="71.3,65.0 103.3,83.5 103.3,120.5 71.3,139.0 39.2,120.5 39.2,83.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="140.6,65.0 172.6,83.5 172.6,120.5 140.6,139.0 108.5,120.5 108.5,83.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="209.8,65.0 241.9,83.5 241.9,120.5 209.8,139.0 177.8,120.5 177.8,83.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="36.6,125.0 68.7,143.5 68.7,180.5 36.6,199.0 4.6,180.5 4.6,143.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="105.9,125.0 138.0,143.5 138.0,180.5 105.9,199.0 73.9,180.5 73.9,143.5" fill="#FBE7BF" stroke="#F6D48E" stroke-width="3"/><polygon points="175.2,125.0 207.2,143.5 207.2,180.5 175.2,199.0 143.2,180.5 143.2,143.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="244.5,125.0 276.5,143.5 276.5,180.5 244.5,199.0 212.4,180.5 212.4,143.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="71.3,185.0 103.3,203.5 103.3,240.5 71.3,259.0 39.2,240.5 39.2,203.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="140.6,185.0 172.6,203.5 172.6,240.5 140.6,259.0 108.5,240.5 108.5,203.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="209.8,185.0 241.9,203.5 241.9,240.5 209.8,259.0 177.8,240.5 177.8,203.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="279.1,185.0 311.2,203.5 311.2,240.5 279.1,259.0 247.1,240.5 247.1,203.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="36.6,245.0 68.7,263.5 68.7,300.5 36.6,319.0 4.6,300.5 4.6,263.5" fill="#FBE7BF" stroke="#F6D48E" stroke-width="3"/><polygon points="105.9,245.0 138.0,263.5 138.0,300.5 105.9,319.0 73.9,300.5 73.9,263.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="175.2,245.0 207.2,263.5 207.2,300.5 175.2,319.0 143.2,300.5 143.2,263.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="244.5,245.0 276.5,263.5 276.5,300.5 244.5,319.0 212.4,300.5 212.4,263.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="313.8,245.0 345.8,263.5 345.8,300.5 313.8,319.0 281.7,300.5 281.7,263.5" fill="#FBE7BF" stroke="#F6D48E" stroke-width="3"/><polygon points="71.3,305.0 103.3,323.5 103.3,360.5 71.3,379.0 39.2,360.5 39.2,323.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="140.6,305.0 172.6,323.5 172.6,360.5 140.6,379.0 108.5,360.5 108.5,323.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="209.8,305.0 241.9,323.5 241.9,360.5 209.8,379.0 177.8,360.5 177.8,323.5" fill="#FBE7BF" stroke="#F6D48E" stroke-width="3"/><polygon points="279.1,305.0 311.2,323.5 311.2,360.5 279.1,379.0 247.1,360.5 247.1,323.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="36.6,365.0 68.7,383.5 68.7,420.5 36.6,439.0 4.6,420.5 4.6,383.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="105.9,365.0 138.0,383.5 138.0,420.5 105.9,439.0 73.9,420.5 73.9,383.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="175.2,365.0 207.2,383.5 207.2,420.5 175.2,439.0 143.2,420.5 143.2,383.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="71.3,425.0 103.3,443.5 103.3,480.5 71.3,499.0 39.2,480.5 39.2,443.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="140.6,425.0 172.6,443.5 172.6,480.5 140.6,499.0 108.5,480.5 108.5,443.5" fill="none" stroke="#EFE3CC" stroke-width="5"/></svg></div>
+    <div class="comb comb-right" aria-hidden="true"><svg viewBox="0 0 386 504"><polygon points="36.6,5.0 68.7,23.5 68.7,60.5 36.6,79.0 4.6,60.5 4.6,23.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="105.9,5.0 138.0,23.5 138.0,60.5 105.9,79.0 73.9,60.5 73.9,23.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="71.3,65.0 103.3,83.5 103.3,120.5 71.3,139.0 39.2,120.5 39.2,83.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="140.6,65.0 172.6,83.5 172.6,120.5 140.6,139.0 108.5,120.5 108.5,83.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="209.8,65.0 241.9,83.5 241.9,120.5 209.8,139.0 177.8,120.5 177.8,83.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="36.6,125.0 68.7,143.5 68.7,180.5 36.6,199.0 4.6,180.5 4.6,143.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="105.9,125.0 138.0,143.5 138.0,180.5 105.9,199.0 73.9,180.5 73.9,143.5" fill="#FBE7BF" stroke="#F6D48E" stroke-width="3"/><polygon points="175.2,125.0 207.2,143.5 207.2,180.5 175.2,199.0 143.2,180.5 143.2,143.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="244.5,125.0 276.5,143.5 276.5,180.5 244.5,199.0 212.4,180.5 212.4,143.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="71.3,185.0 103.3,203.5 103.3,240.5 71.3,259.0 39.2,240.5 39.2,203.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="140.6,185.0 172.6,203.5 172.6,240.5 140.6,259.0 108.5,240.5 108.5,203.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="209.8,185.0 241.9,203.5 241.9,240.5 209.8,259.0 177.8,240.5 177.8,203.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="279.1,185.0 311.2,203.5 311.2,240.5 279.1,259.0 247.1,240.5 247.1,203.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="36.6,245.0 68.7,263.5 68.7,300.5 36.6,319.0 4.6,300.5 4.6,263.5" fill="#FBE7BF" stroke="#F6D48E" stroke-width="3"/><polygon points="105.9,245.0 138.0,263.5 138.0,300.5 105.9,319.0 73.9,300.5 73.9,263.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="175.2,245.0 207.2,263.5 207.2,300.5 175.2,319.0 143.2,300.5 143.2,263.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="244.5,245.0 276.5,263.5 276.5,300.5 244.5,319.0 212.4,300.5 212.4,263.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="313.8,245.0 345.8,263.5 345.8,300.5 313.8,319.0 281.7,300.5 281.7,263.5" fill="#FBE7BF" stroke="#F6D48E" stroke-width="3"/><polygon points="71.3,305.0 103.3,323.5 103.3,360.5 71.3,379.0 39.2,360.5 39.2,323.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="140.6,305.0 172.6,323.5 172.6,360.5 140.6,379.0 108.5,360.5 108.5,323.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="209.8,305.0 241.9,323.5 241.9,360.5 209.8,379.0 177.8,360.5 177.8,323.5" fill="#FBE7BF" stroke="#F6D48E" stroke-width="3"/><polygon points="279.1,305.0 311.2,323.5 311.2,360.5 279.1,379.0 247.1,360.5 247.1,323.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="36.6,365.0 68.7,383.5 68.7,420.5 36.6,439.0 4.6,420.5 4.6,383.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="105.9,365.0 138.0,383.5 138.0,420.5 105.9,439.0 73.9,420.5 73.9,383.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="175.2,365.0 207.2,383.5 207.2,420.5 175.2,439.0 143.2,420.5 143.2,383.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="71.3,425.0 103.3,443.5 103.3,480.5 71.3,499.0 39.2,480.5 39.2,443.5" fill="none" stroke="#EFE3CC" stroke-width="5"/><polygon points="140.6,425.0 172.6,443.5 172.6,480.5 140.6,499.0 108.5,480.5 108.5,443.5" fill="none" stroke="#EFE3CC" stroke-width="5"/></svg></div>
+
   <nav class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="index.html">
-        <img src="assets/bee-logo.svg" alt="BuzzBee" />
-        <span class="brand-name">BuzzBee</span>
-      </a>
-      <div class="nav-links">
-        <a href="#missions" class="hide-mobile">Missions</a>
-        <a href="#features" class="hide-mobile">Features</a>
-        <a href="#privacy" class="hide-mobile">Privacy</a>
-        <a class="btn btn-white btn-pill btn-sm" href="#" title="Coming soon — link will be added once BuzzBee is live on the App Store">
-          Download the app
-          <svg width="14" height="14" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true">
-            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141 0 184.8 0 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 37.1 59 128 107.2 126.5 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-83.4 102.6-120.6-65.2-30.7-57.7-90-57.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
+    <a class="brand" href="index.html">
+      <img src="assets/bee-logo.svg" alt="" />
+      <span>BuzzBee</span>
+    </a>
+    <!-- TODO at launch: replace the dummy App Store URL (3 places on this page). -->
+    <a class="pill pill-ghost pill-sm pill-app" href="https://apps.apple.com/app/buzzbee/id0000000000"><img src="assets/icon.png" alt="" />Download the App</a>
   </nav>
 
   <header class="hero">
-    <div class="wrap hero-inner">
-      <div>
-        <h1>Wakes you at the right moment, not just the loud one.</h1>
-        <p class="lede">
-          Set a wake window instead of one fixed time. BuzzBee starts ringing gently the moment
-          it opens and builds to full volume by your hard deadline — so you ease out of sleep
-          instead of getting yanked out of it. Never later, only ever gentler.
-        </p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="#" title="Coming soon — link will be added once BuzzBee is live on the App Store">Download on the App Store</a>
-          <a class="btn btn-outline" href="#missions">See the missions</a>
-        </div>
-        <p class="hero-note">Coming soon to the App Store · iOS</p>
-      </div>
-      <div class="hero-art">
-        <div class="phone-mock">
-          <div class="mock-hero">
-            <div class="mock-eyebrow">Wake Window begins in</div>
-            <div class="mock-time">7h 20m left</div>
-            <div class="mock-sub">6:30 – 7:00 AM · Weekdays</div>
-          </div>
-          <div class="mock-chip-row">
-            <div class="mock-chip active"></div>
-            <div class="mock-chip"></div>
-            <div class="mock-chip"></div>
-            <div class="mock-chip"></div>
-            <div class="mock-chip"></div>
-          </div>
-        </div>
+    <div class="hero-content">
+      <img class="hero-bee" src="assets/bee-logo.svg" alt="The BuzzBee mascot" />
+      <h1>The alarm that starts gentle and never lets you oversleep.</h1>
+      <p class="lede">Set a wake window. BuzzBee rings softly when it opens, builds to full volume by your deadline — then makes you finish a mission to turn it off.</p>
+      <div class="cta-row">
+        <a class="pill pill-dark" href="https://apps.apple.com/app/buzzbee/id0000000000"><svg viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141 0 184.8 0 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 37.1 59 128 107.2 126.5 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-83.4 102.6-120.6-65.2-30.7-57.7-90-57.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
+        <a class="pill pill-ghost" href="#missions">See the missions</a>
       </div>
     </div>
   </header>
 
-  <section id="missions">
-    <div class="wrap">
-      <span class="section-label reveal">Snoozing is disabled</span>
-      <h2 class="section-title reveal">Finish a mission to dismiss.</h2>
-      <p class="section-sub reveal">
-        Pick one dismiss method per alarm. High rep counts mean you can't clear it on
-        autopilot the way you can tap a quick multiple-choice answer.
-      </p>
-      <div class="mission-grid">
-        <div class="mission-card reveal">
-          <div class="mission-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="4" y="4" width="16" height="16" rx="4" stroke="#E8790A" stroke-width="2"/>
-              <path d="M8 12h8M12 8v8" stroke="#E8790A" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Math</h3>
-          <p>Solve one equation to dismiss.</p>
-        </div>
-        <div class="mission-card reveal">
-          <div class="mission-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M8 13l-3-5a1.8 1.8 0 0 1 3-2l2 3M12 11l-2.5-4.3a1.8 1.8 0 0 1 3-1.8L15 9M16 12l-1.5-2.5a1.7 1.7 0 0 1 2.8-1.8L19 11a7 7 0 0 1-2 9l-1 .8a5 5 0 0 1-6 0l-4-3a3 3 0 0 1 3-5l3 1.5" stroke="#E8790A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3>Clap</h3>
-          <p>Clap 50 times to dismiss.</p>
-        </div>
-        <div class="mission-card reveal">
-          <div class="mission-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="7" y="3" width="10" height="18" rx="2" stroke="#E8790A" stroke-width="2"/>
-              <path d="M4 9l-1.5 1.5M20 9l1.5 1.5" stroke="#E8790A" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Shake</h3>
-          <p>Shake your phone 50 times.</p>
-        </div>
-        <div class="mission-card reveal">
-          <div class="mission-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M11 5 6 9H3v6h3l5 4z" stroke="#E8790A" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M16 8a5 5 0 0 1 0 8" stroke="#E8790A" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Buzzzzz</h3>
-          <p>Make a long buzzing sound, 10 times.</p>
-        </div>
-        <div class="mission-card reveal">
-          <div class="mission-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <circle cx="12" cy="12" r="4" stroke="#E8790A" stroke-width="2"/>
-              <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="#E8790A" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Tap</h3>
-          <p>Tap the screen 100 times.</p>
-        </div>
-        <div class="mission-card reveal">
-          <div class="mission-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 17h3l9-11h4M4 7h3l3 3.6M20 17h-4l-2.4-2.9" stroke="#E8790A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M18 4l3 2-3 2M18 20l3-2-3-2" stroke="#E8790A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3>Random</h3>
-          <p>A surprise mission, picked fresh each time.</p>
-        </div>
+  <section id="missions" class="section">
+    <div class="section-head reveal">
+      <h2>No snooze.<br>Finish a mission to turn it off.</h2>
+      <p>Pick one per alarm. The rep counts are high on purpose — you can't clear them half-asleep.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(1 1) scale(0.42)"><path d="M5 12h14"/><path d="M12 5v14"/></g><g transform="translate(13 1) scale(0.42)"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></g><g transform="translate(1 13) scale(0.42)"><path d="M5 12h14"/></g><g transform="translate(13 13) scale(0.42)"><circle cx="12" cy="6" r="1"/><line x1="5" x2="19" y1="12" y2="12"/><circle cx="12" cy="18" r="1"/></g></svg></div><h3>Math</h3><p>Solve one problem.</p></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></div><h3>Clap</h3><p>Clap 50 times.</p></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 8 2 2-2 2 2 2-2 2"/><path d="m22 8-2 2 2 2-2 2 2 2"/><rect width="8" height="14" x="8" y="5" rx="1"/></svg></div><h3>Shake</h3><p>Shake your phone 50 times.</p></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/></svg></div><h3>Buzzzzz</h3><p>Make a long buzzing sound, 10 times.</p></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3>Tap</h3><p>Tap the screen 100 times.</p></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="12" height="12" x="2" y="10" rx="2" ry="2"/><path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6"/><path d="M6 18h.01"/><path d="M10 14h.01"/><path d="M15 6h.01"/><path d="M18 9h.01"/></svg></div><h3>Random</h3><p>A surprise mission each time.</p></div>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="section-head reveal">
+      <h2>Built to actually get you up.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card-lg reveal">
+        <div class="icon icon-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M22 8c0-2.3-.8-4.3-2-6"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/><path d="M4 2C2.8 3.7 2 5.7 2 8"/></svg></div>
+        <h3>Rings through Silent. And Focus. Even closed.</h3>
+        <p>Built on Apple’s AlarmKit, so it rings at full volume even if you’ve swiped the app away.</p>
+      </div>
+      <div class="card card-lg reveal">
+        <div class="icon icon-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 13a2 2 0 0 0 2-2V7a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0V4a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0v-4a2 2 0 0 1 2-2"/></svg></div>
+        <h3>Starts gentle. Never late.</h3>
+        <p>A wake window instead of one fixed time: soft when it opens, full volume by your hard deadline.</p>
+      </div>
+      <div class="card card-lg reveal">
+        <div class="icon icon-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></svg></div>
+        <h3>Your voice as the alarm.</h3>
+        <p>Record up to 15 seconds — a song clip, a pep talk, anything. Saved on your phone only.</p>
+      </div>
+      <div class="card card-lg reveal">
+        <div class="icon icon-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 18h20"/></svg></div>
+        <h3>Looks after your night.</h3>
+        <p>A calm Bedtime Reminder, and a heads-up the day before if tomorrow’s first event clashes with your alarm.</p>
+      </div>
+      <div class="card card-lg reveal">
+        <div class="icon icon-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="m9 15 2 2 4-4"/></svg></div>
+        <h3>See your mornings.</h3>
+        <p>A wake calendar showing which days you finished the mission. Name every alarm, too.</p>
+      </div>
+      <div class="card card-lg reveal">
+        <div class="icon icon-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>No ads. No account. No tracking.</h3>
+        <p>Everything stays on your phone. The mic only reads a volume level — except sounds you choose to record.</p>
       </div>
     </div>
   </section>
 
-  <section id="features">
-    <div class="wrap">
-      <span class="section-label reveal">Beyond the wake-up moment</span>
-      <h2 class="section-title reveal">BuzzBee looks after your whole night, not just the alarm.</h2>
-      <div class="feature-grid">
-        <div class="feature-card reveal">
-          <div class="icon-badge">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z" stroke="#E8790A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3>Bedtime Reminder</h3>
-          <p>A calming reminder and a dimmed breathing screen before your set bedtime — so winding down isn't an afterthought.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="icon-badge">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="4" y="5" width="16" height="16" rx="3" stroke="#E8790A" stroke-width="2"/>
-              <path d="M4 10h16M8 3v4M16 3v4" stroke="#E8790A" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Calendar Auto-Shift</h3>
-          <p>Checks tomorrow's first event and nudges you the day before if your wake window would conflict with it.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="icon-badge">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5 18V13M12 18V8M19 18v-3" stroke="#E8790A" stroke-width="2.4" stroke-linecap="round"/>
-              <path d="M5 10V6M12 5V3M19 12V9" stroke="#E8790A" stroke-width="2.4" stroke-linecap="round" opacity="0.35"/>
-            </svg>
-          </div>
-          <h3>Gentle Escalation</h3>
-          <p>Volume ramps in gradually on an early wake — never an instant blast, unless the hard deadline leaves no more slack.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="icon-badge">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="9" y="2" width="6" height="12" rx="3" stroke="#E8790A" stroke-width="2"/>
-              <path d="M5 10v1a7 7 0 0 0 14 0v-1M12 18v3" stroke="#E8790A" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Record Your Own Alarm Sound</h3>
-          <p>Your voice, a song clip, anything — record up to 15 seconds and use it instead of the built-in tones. Saved on your device only, never uploaded anywhere.</p>
-        </div>
-      </div>
-    </div>
+  <section class="final reveal">
+    <img class="final-bee" src="assets/bee_face.svg" alt="" />
+    <h2>Wake up on time. Every time.</h2>
+    <p>For iPhone, on iOS 26 and later.</p>
+    <a class="pill pill-dark" href="https://apps.apple.com/app/buzzbee/id0000000000"><svg viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141 0 184.8 0 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 37.1 59 128 107.2 126.5 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-83.4 102.6-120.6-65.2-30.7-57.7-90-57.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
   </section>
 
-  <section id="privacy">
-    <div class="wrap">
-      <div class="privacy-strip reveal">
-        <div>
-          <h2>Everything stays on your phone.</h2>
-          <p>
-            No account, no sign-up, no cloud sync. BuzzBee's sensors are used live,
-            on-device, and immediately discarded — never recorded, stored, or sent
-            anywhere.
-          </p>
-        </div>
-        <ul class="privacy-checks">
-          <li>
-            <span class="dot">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 13l4 4L19 7" stroke="#2B2420" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            No account required to use the app
-          </li>
-          <li>
-            <span class="dot">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 13l4 4L19 7" stroke="#2B2420" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            Microphone is read for volume level only — never recorded
-          </li>
-          <li>
-            <span class="dot">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 13l4 4L19 7" stroke="#2B2420" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            No analytics, ads, or tracking SDKs
-          </li>
-          <li>
-            <span class="dot">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 13l4 4L19 7" stroke="#2B2420" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            Your alarms and history never leave your device
-          </li>
-        </ul>
-      </div>
+  <footer class="footer">
+    <a class="brand" href="index.html">
+      <img src="assets/bee-logo.svg" alt="" />
+      <span>BuzzBee</span>
+    </a>
+    <div class="footer-links">
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
     </div>
-  </section>
-
-  <section class="final-cta reveal">
-    <div class="wrap">
-      <h2>Ready to wake up right?</h2>
-      <p>BuzzBee is launching soon on the App Store.</p>
-      <a class="btn btn-primary" href="#" title="Coming soon — link will be added once BuzzBee is live on the App Store">Download on the App Store</a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <a class="brand" href="index.html">
-        <img src="assets/bee-logo.svg" alt="BuzzBee" style="width:24px" />
-        <span class="brand-name">BuzzBee</span>
-      </a>
-      <p class="footer-tagline">Wakes you at the right moment, not just the loud one.</p>
-      <div class="footer-links">
-        <a href="support.html">Support</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-      </div>
-      <p class="footer-copy">© <span id="year"></span> BuzzBee. All rights reserved.</p>
-    </div>
+    <p class="copy">© <span id="year"></span> BuzzBee</p>
   </footer>
 
   <script src="assets/site.js"></script>
